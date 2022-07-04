@@ -1,0 +1,41 @@
+body{
+    width: 400px ;
+    font-family: Arial;
+    font-size: 13px;
+    background-color: black;
+    color: aliceblue;
+    margin-top: 100px;    
+    margin-left: 450px;
+}
+.head{
+    border: none;
+    text-align: center;
+}
+div{
+    width: 400px ;
+    height: 50% ;
+    border-right: 5px solid DodgerBlue;    
+    border-left: 5PX solid DodgerBlue;
+    border-top:5px solid white;  
+    border-bottom:5px solid white;
+    padding: 20px;
+    border-radius: 5px;
+}
+.text{
+    background-color: rgba(126, 160, 232, 0.372);
+    border-color: whitesmoke;
+    border-radius: 5px;
+    color: whitesmoke;
+
+}
+input[type=submit]{
+    background-color: rgb(126, 160, 232);
+    width: 150px;
+    height: 30px;
+    position: relative;
+    left: 120px;
+    border-radius: 10px;
+    border-color: whitesmoke;
+    color: whitesmoke;
+
+}
