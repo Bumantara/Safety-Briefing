@@ -1,65 +1,89 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
-<title>Safety Briefing</title>
-<link rel="stylesheet" href="index_style.css"/>
+  <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+  <meta charset='UTF-8'>
+  <title>LOGISTICS TRACKING</title>
+  <link rel='shortcut icon' href='img/'/>
+  <link rel='shortcut icon' href='img/philips_logo_icon.ico'/>
+  <link href='asset/bootstrap/css/bootstrap.css' rel='stylesheet' />
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.css' rel='stylesheet' />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href='asset/css/steyl1.css' rel='stylesheet' />
+  <link rel="stylesheet" href="asset/font_awesome/css/font-awesome.min.css">
+
+  <script src='asset/JQuery/jquery.min.js'></script>
+  <script src='asset/bootstrap/js/bootstrap.js'></script>
+  <script src="asset/JQuery/google_map.js"></script>
+  <script src="asset/chart/canvasjs.min.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v1.1.1/mapbox-gl.js'></script>
 </head>
-<body>
-    
-    <div>
-    <h2 class="head"><b>SAFETY BRIEFING</b></h2> 
-    <br>
-    
-    <form action="Layer2.php" method="get">
-        <br>
-        <table>
-            <tr>
-                <td width="70"><label for="name">NAME</label></td>
-                <td width="20">:</td>
-                <td> <input type="text" id="name" name="nama" class="text"><br> </td>
-            </tr>
-            <tr>
-                <td width="70"><label for="company">COMPANY</label></td>
-                <td width="20">:</td>
-                <td><input type="text" id="company" name="company" class="text"><br></td>
-            </tr>
-        </table>
-        
-        <br>
-        <t3>Safety Briefing</t3>
-        <br>
-        <table>
-            
-            <tr>
-                <td width="10">1.</td>
-                <td width="350"><label for="c1">Wajib memiliki ijin kerja dari Philips</label></td>
-                <td><input type="checkbox" id="c1" name="ijin kerja" value="Y"></td>
-            </tr>
-            <tr>
-                <td width="10">2.</td>
-                <td width="350"><label for="c2">Wajib menggunakan APD lengkap Sesuai dengan jenis pekerjaan</label></td>
-                <td><input type="checkbox" id="c2" name="APD Lengkap" value="Y"></td>
-            </tr>
-            <tr>
-                <td width="10">3.</td>
-                <td width="350"><label for="c3">Bersedia mematuhi peraturan yang ada di Philips</label></td>
-                <td><input type="checkbox" id="c3" name="mematuhi peraturan" value="Y"></td>
-            </tr>
-            <tr>
-                <td width="10">4.</td>
-                <td width="350"><label for="c4">Telah membaca dan memahami semua peryataan di atas</label></td>
-                <td><input type="checkbox" id="c4" name="telah membaca dan memahami semua peryataan" value="Y"></td>
-            </tr>
-            
-        </table>
-        <br>
-        <br>
-        <input type="submit" value="Submit">
-        <br>
-        <br>
-    </form>
+
+<?php
+  date_default_timezone_set('Asia/Jakarta');
+  include "config/koneksi pdo.php";
+?>
+<div class="hedder">
+  <div class="border">
+
+  </div>
+  <div class="border1">
+    <div class="center">
+      <div class="center_up">
+        <div class="class_box_up">SAFETY BRIEFING
+        </div>
+        <div class="class_box_dwn">
+          <div class="dir">
+
+          </div>
+          <div class="text">
+          </div>
+          <div class="box">
+          </div>
+          <div class="text">
+          </div>
+          <div class="box">
+          </div>
+        </div>
+      </div>
+      <div class="center_dwn">
+
+      </div>
     </div>
-    
+  </div>
+</div>
+<body>
+
+<script type='text/javascript'>
+
+  var myVar = setInterval(myTimer, 500);
+  var number = 1;
+  var reload_counter = 1;
+  var days =  ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var datetime = new Date();
+  initial_hour = datetime.getHours();
+  var data_output = 12;
+  if (initial_hour < 10) {initial_hour = '0' + initial_hour};
+  function myTimer() {
+    var d = new Date();
+    var day = days[ d.getDay() ];
+    var date = d.getDate();
+    var month = months[ d.getMonth() ];
+    hour = d.getHours();
+    minute = d.getMinutes();
+    seconds = d.getSeconds();
+
+    if (day < 10) {day = '0' + day}
+    if (hour < 10) {hour = '0' + hour}
+    if (minute < 10) {minute = '0' + minute}
+    if(seconds < 10 ) {seconds = '0' + seconds}
+    var timeshow =  hour + ':' + minute + ':' + seconds;
+    dateshow = day + ', ' + date + ' ' + month ;//+ ' ' + d.getFullYear();
+    document.getElementById('timeshow').innerHTML =  dateshow + ' ' + timeshow  ;
+  }
+</script>
+
 
 </body>
 </html>
